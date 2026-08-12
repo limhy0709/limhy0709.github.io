@@ -1,13 +1,13 @@
 ---
 layout: page
 title: Sounding Rocket Competition
-description: Vehicle development and flight testing for the [누리대회 영문명]
-img: assets/img/nuri.jpg
+description: Vehicle development and flight testing for the [NURA]
+img: assets/img/nura.jpg
 importance: 2
 category: rocketry
 ---
 
-**Team:** [동아리/팀명], Hanyang University · **Role:** [담당 파트] · **Year:** [2026]
+**Team:** HELIOS, Hanyang University · **Role:** [Avionics] · **Year:** [2026]
 
 ## Overview
 
