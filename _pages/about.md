@@ -25,6 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+
 I am an undergraduate student at Hanyang University, working on rocket propulsion and flight control.
 
 My interest in spaceflight began with astrophysics — specifically with orbital mechanics and Lagrange points. What drew me in was not the geometry of these orbits but their fragility: most Lagrange points are unstable, and a spacecraft only stays there through continuous station-keeping. That realization reframed the problem for me. The question was never where a vehicle should be, but how it gets there and holds its state once it arrives.
