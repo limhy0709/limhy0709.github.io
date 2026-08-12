@@ -29,7 +29,7 @@ I am an undergraduate student at Hanyang University, working on rocket propulsio
 
 My interest in spaceflight began with astrophysics — specifically with orbital mechanics and Lagrange points. What drew me in was not the geometry of these orbits but their fragility: most Lagrange points are unstable, and a spacecraft only stays there through continuous station-keeping. That realization reframed the problem for me. The question was never where a vehicle should be, but how it gets there and holds its state once it arrives.
 
-That question led me from orbital mechanics to propulsion. Through my university's rocketry team I worked on liquid rocket engine development, and while preparing for the [누리대회 영문명] competition my focus shifted again — this time toward control. Thrust is meaningless if it cannot be pointed accurately.
+That question led me from orbital mechanics to propulsion. Through my university's rocketry team I worked on liquid rocket engine development, and while preparing for the NURA(National University Rocket Association) competition my focus shifted again — this time toward control. Thrust is meaningless if it cannot be pointed accurately.
 
 I am currently developing a thrust vector control (TVC) rocket, targeting a flight demonstration by [2027]. In a sense I am still working on the same problem that interested me in high school — actively stabilizing an inherently unstable system — only now with hardware I build myself.
 
