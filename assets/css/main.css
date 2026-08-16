@@ -24,3 +24,20 @@ article h1, article h2, article h3, article h4 {
 article > *:first-child {
   margin-top: 0;
 }
+
+/* ---- content images ---- */
+.post img,
+article img {
+  display: block;
+  max-width: 100%;
+  max-height: 620px;
+  width: auto;
+  height: auto;
+  margin: 1.6rem auto;
+}
+
+.profile img {
+  width: 100%;
+  max-height: none;
+  margin: 0;
+}
