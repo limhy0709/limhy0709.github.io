@@ -41,7 +41,7 @@ Stage 2 has a 32 mm core, giving it a faster, higher-peak, shorter burn than sta
 
 ### **![](/assets/img/nura/01.png) ![](/assets/img/nura/02.png)**
 
-### 
+
 
 ### **Predicted flight (OpenRocket, 4 m/s wind, 5° rail angle)**
 
@@ -163,7 +163,7 @@ The test flight and the competition flight ran different firmware and, criticall
 | BMP280 sampling | ×2 / ×16, IIR ×16 | ×1 / ×4, IIR ×8 |
 | Stage-2 relay on-time | 3500 ms | 2000 ms |
 
-### 
+
 
 ### Why each change was made
 
@@ -191,7 +191,7 @@ Both configurations passed ground testing. The difference only appeared in fligh
 
  Eight changes went out together on a vehicle that flies once. Three of them were clear improvements, two raised risk, and three followed from other decisions — but with a single flight and no recovered data, none of them can be separated from the others after the fact.
 
-## 
+
 
 ## **Outcome**
 
@@ -222,7 +222,7 @@ I could not isolate this in the field. Several candidates remain, and I now beli
 **A4 — Antenna mounted flush to CFRP.**   
  Carbon fiber is conductive. The antenna was routed outside the structure but taped directly to the surface, so it was outside the airframe geometrically and not electromagnetically — attenuation plus impedance detuning. A contributing factor, not a sufficient cause on its own.
 
-### 
+
 
 ### Symptom B — no recovery deployment
 
