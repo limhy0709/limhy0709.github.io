@@ -11,6 +11,7 @@ Competition : NURA (National University Rocket Association), \[2026\]
 Team : Helios, Hanyang University Rocketry Team  
 My role : Avionics Team Leader \- Flight computer, Staging logic, Telemetry, Data logging
 
+
 ## **Vehicle**
 
  A two-stage sounding rocket with a CFRP airframe, flying two in-house aluminium 6061 solid motors. The mass of the airframe was set **7.5 kg for the test flight, lightened to 6.1 kg for the competition** with identical geometry and identical motors.
@@ -23,6 +24,7 @@ My role : Avionics Team Leader \- Flight computer, Staging logic, Telemetry, Dat
 | Fins | 4 per stage, trapezoidal, 170 mm root / \~95 mm tip / \~90 mm span, 1.5 mm |
 | Recovery | 58″ printed nylon parachute |
 | Launch rail | 3.0 m, 5° from vertical |
+
 
 ### **Motors — measured static fire, 11 July 2026**
 
@@ -38,6 +40,8 @@ My role : Avionics Team Leader \- Flight computer, Staging logic, Telemetry, Dat
 | Delivered Isp | 57.6 s | 53.1 s |
 
 Stage 2 has a 32 mm core, giving it a faster, higher-peak, shorter burn than stage 1 \-  a more progressive grain for the same case.
+
+
 
 ### **![](/assets/img/nura/01.png) ![](/assets/img/nura/02.png)**
 
@@ -59,6 +63,8 @@ Stage 2 has a 32 mm core, giving it a faster, higher-peak, shorter burn than sta
 
  Both configurations also carry an unresolved OpenRocket **high-speed deployment warning at \~31 m/s**. The warning was noted and carried into flight rather than designed out.
 
+
+
 ## **Mission and avionics requirements**
 
  Unlike a single-stage vehicle, the flight computer here holds **2nd ignition authority** : it decides autonomously when to energize the second-stage igniter, and stage separation follows mechanically from that ignition. Avionics therefore had two jobs — measure and downlink flight data, and make a staging decision in flight.
@@ -78,6 +84,8 @@ The system was split across both stages:
 Stage 1 carried tracking only – GNSS plus a radio, no SD card – so its position existed only as a live downlink.
 
 **Ignition circuit.** The MCU GPIO cannot source nichrome heating current, so the design uses a two-level switch : GPIO → 100 Ω gate resistor → BSS138 N-MOSFET → SRD-05VDC relay coil → relay contacts carry the igniter current. A 1N4148 flyback diode protects against coil back-EMF, and a 10 kΩ gate pulldown keeps the MOSFET off during boot and floating-signal conditions. The high-current path is fully isolated from the logic.
+
+
 
 ### **PCB Design** 
 
@@ -113,6 +121,8 @@ Version.2(V2) layout removes the ambiguity that allowed it. On the test board th
 
 ![](/assets/img/nura/05.png)  ![](/assets/img/nura/06.png)
 
+
+
 ## **Ignition Algorithm**
 
 ![](/assets/img/nura/07.png)
@@ -122,6 +132,8 @@ Stage 1 Ignition
 ![](/assets/img/nura/08.png)  
 Stage 2 Ignition  
 ![](/assets/img/nura/09.png)
+
+
 
 ## **Staging logic — a deliberate simplification**
 
@@ -146,6 +158,8 @@ This was a decision, not an oversight, and it turns on the igniter's delay.
 **What I would still change:** the design report was never updated to match. The reasoning above lived in my head and in code comments, not in the document the team reviewed. A design decision this consequential should be recorded as a decision, with its rationale and its rejected alternative, at the moment it is made.
 
 Two other numbers also drifted without being written down — apogee descend count (10 in the report, 7 in code) and the addition of a 15.7 s deployment backup timer. Neither is wrong; neither was tracked.
+
+
 
 ## **Two builds**
 
@@ -204,6 +218,8 @@ Both configurations passed ground testing. The difference only appeared in fligh
 
 Two flights, no datasets.
 
+
+
 ## **Failure analysis**
 
 ### Symptom A — no telemetry link
@@ -252,6 +268,8 @@ The original arming chain was **physical arming switch → ground-station ARM co
 Before NURA I had never worked on avionics. I came into the project thinking of it as the part of the rocket that records what the rocket does. I came out of it thinking close to the opposite: **a control system is only as good as the physical data path underneath it.** My thresholds were derived and my state machine was correct; neither mattered once a connector under the nosecone stopped making contact. Estimation, tuning, and failure analysis all assume that measurements survive to be read, and that assumption has to be designed for rather than hoped for. Two flights that returned no data at all are what taught me the difference.
 
 The other lesson is less technical, and I take it more seriously. The most consequential decision I made that day was made in a hurry, and it removed a safeguard. In the work I do now, the sensing architecture and the abort logic are the first things I design, not the last.
+
+
 
 ## Gallery
 
