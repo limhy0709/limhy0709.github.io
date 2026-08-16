@@ -74,9 +74,11 @@ SUS 304 for strength and corrosion resistance, because the nozzle is meant to su
 
 The geometry is self-consistent: (31.47 / 11.13)² = 7.99, which is the specified expansion ratio of 8. Throat area is 97.3 mm², exit area 778 mm².
 
-![](/assets/img/motor/02_nozzle.png)
 
-![](/assets/img/motor/03_nozzle_alt.png)
+<div style="display:flex; gap:1rem; align-items:flex-start;">
+  <img src="/assets/img/motor/02_nozzle.png" style="max-width:48%">
+  <img src="/assets/img/motor/03_nozzle_alt.png" style="max-width:48%">
+</div>
 
 
 ### Combustion chamber
