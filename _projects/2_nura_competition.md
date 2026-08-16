@@ -145,7 +145,7 @@ This was a decision, not an oversight, and it turns on the igniter's delay.
 
 **What I would still change:** the design report was never updated to match. The reasoning above lived in my head and in code comments, not in the document the team reviewed. A design decision this consequential should be recorded as a decision, with its rationale and its rejected alternative, at the moment it is made.
 
-## Two other numbers also drifted without being written down — apogee descend count (10 in the report, 7 in code) and the addition of a 15.7 s deployment backup timer. Neither is wrong; neither was tracked.
+Two other numbers also drifted without being written down — apogee descend count (10 in the report, 7 in code) and the addition of a 15.7 s deployment backup timer. Neither is wrong; neither was tracked.
 
 ## **Two builds**
 
