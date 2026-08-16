@@ -200,8 +200,6 @@ Both configurations passed ground testing. The difference only appeared in fligh
 
  Eight changes went out together on a vehicle that flies once. Three of them were clear improvements, two raised risk, and three followed from other decisions — but with a single flight and no recovered data, none of them can be separated from the others after the fact.
 
-## 
-
 
 ## **Outcome**
 
