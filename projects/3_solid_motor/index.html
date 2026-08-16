@@ -1,0 +1,142 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Solid Rocket Motor Design | Hongryeol Lim </title> <meta name="author" content="Hongryeol Lim"> <meta name="description" content="Design study of a 1447 N-s solid motor - nozzle, chamber and bulkhead - for a 1 km sounding rocket"> <meta name="keywords" content="rocketry, TVC, orbital mechanics, flight control"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://limhy0709.github.io/projects/3_solid_motor/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Hongryeol Lim </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Solid Rocket Motor Design</h1> <p class="post-description">Design study of a 1447 N-s solid motor - nozzle, chamber and bulkhead - for a 1 km sounding rocket</p> </header> <article> <p>Project : <em>Build Your Own Rocket</em>, Helios rocketry team My role : Propulsion - solid motor design (nozzle, combustion chamber, bulkhead), Autodesk Inventor Partner : airframe, recovery and vehicle integration</p> <p>This was the first project I led inside the club. Two of us split a whole vehicle between us: I designed the motor, my partner designed the airframe and recovery system, and we met in the middle at the interface.</p> <p><strong>Scope.</strong> The project ended at design review. Nothing here was manufactured or fired — every number below is a designed or simulated value, and the drawings stop at CAD.</p> <h2 id="requirements">Requirements</h2> <p>The vehicle-level goal was deliberately constrained — reach the target with the smallest airframe that will do it, rather than with the biggest motor we could build.</p> <table> <thead> <tr> <th> </th> <th>Requirement</th> </tr> </thead> <tbody> <tr> <td>Target apogee</td> <td>1 km</td> </tr> <tr> <td>Maximum speed</td> <td>Mach 0.5</td> </tr> <tr> <td>Propellant mass</td> <td>≤ 1.5 kg</td> </tr> <tr> <td>Recovery</td> <td>reliable enough for a safe recovery, single deployment</td> </tr> </tbody> </table> <p>From these I derived the motor-level requirements myself:</p> <table> <thead> <tr> <th>ID</th> <th>Item</th> <th>Constraint</th> </tr> </thead> <tbody> <tr> <td>SR-1</td> <td>Chamber pressure</td> <td>≤ 5.0 MPa</td> </tr> <tr> <td>SR-2</td> <td>Propellant load</td> <td>fixed grain mass and segment count</td> </tr> </tbody> </table> <p>Chamber pressure is the requirement that drives everything else in the motor. It sets the wall thickness, the O-ring configuration, the bolt count at both closures, and — through the throat area — the thrust curve. Fixing it first meant every later dimension had something to be derived from.</p> <h2 id="motor">Motor</h2> <p>Sized in an SRM spreadsheet, then modelled in Inventor as three parts: nozzle, combustion chamber, bulkhead.</p> <table> <thead> <tr> <th>Parameter</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>Total impulse</td> <td>1447 N·s</td> </tr> <tr> <td>Peak thrust</td> <td>625 N</td> </tr> <tr> <td>Burn time</td> <td>2.667 s</td> </tr> <tr> <td>Propellant mass</td> <td>1197 g</td> </tr> <tr> <td>Chamber pressure</td> <td>5.00 MPa</td> </tr> <tr> <td>Casing</td> <td>Al 6061-T6</td> </tr> <tr> <td>Nozzle / bulkhead</td> <td>SUS 304</td> </tr> <tr> <td>O-rings</td> <td>AN-229</td> </tr> </tbody> </table> <p>Average thrust is 543 N, so the peak-to-average ratio is 1.15 — close to neutral, which is what a constant-pressure design should give.</p> <p><img src="/assets/img/motor/01_motor_half_section.png" alt=""></p> <h3 id="nozzle">Nozzle</h3> <table> <thead> <tr> <th>Parameter</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>Outer diameter</td> <td>68 mm</td> </tr> <tr> <td>Length</td> <td>88.47 mm</td> </tr> <tr> <td>Throat diameter</td> <td>11.13 mm</td> </tr> <tr> <td>Exit diameter</td> <td>31.47 mm</td> </tr> <tr> <td>Expansion ratio</td> <td>8</td> </tr> <tr> <td>Convergent half-angle</td> <td>35°</td> </tr> <tr> <td>Divergent half-angle</td> <td>12°</td> </tr> <tr> <td>O-ring groove</td> <td>AN-229 × 2, Φ48.2</td> </tr> </tbody> </table> <p>SUS 304 for strength and corrosion resistance, because the nozzle is meant to survive repeated firings rather than be consumed. Two O-ring locations including a backup ring, and twelve M6 carbon steel bolts at the closure.</p> <p>The geometry is self-consistent: (31.47 / 11.13)² = 7.99, which is the specified expansion ratio of 8. Throat area is 97.3 mm², exit area 778 mm².</p> <p><img src="/assets/img/motor/02_nozzle.png" alt=""></p> <p><img src="/assets/img/motor/03_nozzle_alt.png" alt=""></p> <h3 id="combustion-chamber">Combustion chamber</h3> <table> <thead> <tr> <th>Parameter</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>Outer diameter</td> <td>74 mm</td> </tr> <tr> <td>Wall thickness</td> <td>3 mm</td> </tr> <tr> <td>Length</td> <td>270 mm</td> </tr> </tbody> </table> <p>Wall thickness came from hoop stress, then got checked against two things that were not negotiable — the sizes commercial aluminium pipe actually comes in, and the 68 mm inner diameter of the 3 mm phenolic liner that had to fit inside.</p> <p>At 5 MPa with a 68 mm bore and a 3 mm wall:</p> \[\sigma_\theta = \frac{p\,d_i}{2t} = \frac{5 \times 68}{2 \times 3} \approx 57\ \text{MPa}\] <p>Against the ~276 MPa yield of 6061-T6 that is a safety factor of roughly 4.9 — comfortable, and largely set by the pipe stock rather than by the calculation.</p> <p><img src="/assets/img/motor/05_chamber.png" alt=""></p> <p><img src="/assets/img/motor/04_chamber_detail.png" alt=""></p> <h3 id="bulkhead">Bulkhead</h3> <table> <thead> <tr> <th>Parameter</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>Outer diameter</td> <td>67.5 mm</td> </tr> <tr> <td>Length</td> <td>55.05 mm</td> </tr> <tr> <td>Instrumentation</td> <td>NPT 1/4″ × 2</td> </tr> <tr> <td>O-ring groove</td> <td>AN-229 × 2, Φ61.8</td> </tr> </tbody> </table> <p>SUS 304 again, and two NPT 1/4″ ports intended to carry pressure and temperature fittings for a static fire. Putting the instrumentation ports into the closure at design time, rather than leaving them to be added once the motor existed, is the decision on this part I would repeat.</p> <p><img src="/assets/img/motor/06_bulkhead.png" alt=""></p> <p><img src="/assets/img/motor/07_bulkhead_view.png" alt=""></p> <h2 id="design-iteration">Design iteration</h2> <p>The motor was not right the first time. The version that went into the vehicle is noticeably larger than the one the spreadsheet first produced.</p> <table> <thead> <tr> <th> </th> <th>First sizing</th> <th>Vehicle build</th> </tr> </thead> <tbody> <tr> <td>Total impulse</td> <td>1175 N·s</td> <td>1447 N·s</td> </tr> <tr> <td>Propellant mass</td> <td>972 g</td> <td>1197 g</td> </tr> <tr> <td>Burn time</td> <td>2.039 s</td> <td>2.667 s</td> </tr> <tr> <td>Peak thrust</td> <td>679 N</td> <td>625 N</td> </tr> </tbody> </table> <p>Impulse rose 23% while peak thrust <em>fell</em> — a longer, flatter burn rather than a harder one. Both versions sit at a delivered specific impulse of about 123 s in the spreadsheet, so the change is grain geometry and loading rather than propellant chemistry.</p> <h2 id="vehicle-level-result">Vehicle-level result</h2> <p>My partner’s airframe around my motor, as simulated:</p> <table> <thead> <tr> <th>Parameter</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>Overall length</td> <td>1270 mm</td> </tr> <tr> <td>Liftoff mass</td> <td>7.135 kg</td> </tr> <tr> <td>Burnout mass</td> <td>5.938 kg</td> </tr> <tr> <td>CG / CP from nose</td> <td>939 mm / 1090 mm</td> </tr> <tr> <td>Static stability</td> <td>2.01 cal</td> </tr> <tr> <td>Predicted apogee</td> <td>1356 m</td> </tr> <tr> <td>Maximum speed</td> <td>Mach 0.524</td> </tr> <tr> <td>Maximum acceleration</td> <td>80.8 m/s²</td> </tr> </tbody> </table> <p><img src="/assets/img/motor/08_rocket_profile.png" alt=""></p> <p>The stability figure checks out: (1090 − 939) / 74 = 2.04 cal, against a body diameter of 74 mm.</p> <p>The prediction sits above the stated numbers — 1356 m against a 1 km target, Mach 0.524 against Mach 0.5. That was accepted rather than corrected: the club treated these figures as a direction to design toward, not a specification to hit, and we were told the tolerance did not need to be tight. Sizing the motor down to land exactly on 1 km would have meant re-cutting the grain geometry for no gain the project cared about.</p> <h2 id="airframe-and-recovery-partners-work-for-context">Airframe and recovery (partner’s work, for context)</h2> <p>Haack series nose cone, 74 mm diameter and 296 mm long, chosen to reduce drag. Recovery is a CO₂ pneumatic ejection system, single deployment, adapted from an existing linker-to-barrel assembly and scaled down. Parachute sizing set a target descent rate of 8 m/s, which gives a 1.28 m minimum diameter from a drag-equals-weight balance; a 1.5 safety factor took the final canopy to 1.92 m.</p> <p><img src="/assets/img/motor/09_rocket_model.png" alt=""></p> <p><img src="/assets/img/motor/10_rocket_model2.png" alt=""></p> <p><img src="/assets/img/motor/11_assembly.png" alt=""></p> <h2 id="what-i-would-do-differently">What I would do differently</h2> <p><strong>Keep one version of the requirements.</strong> The requirement table went through more than one revision — the propellant load moved between a multi-segment and a single-segment grain — and the revisions were written under the same requirement ID rather than as a tracked change. Anyone reading the document afterwards cannot tell which version the hardware was built to.</p> <p><strong>Justify the margin, not just the number.</strong> The chamber safety factor of 4.9 came from the pipe stock that was available, not from a target I chose. That is a reasonable way to arrive at a wall thickness, but the document should say so — otherwise a reader assumes 4.9 was deliberate.</p> <p><strong>Verify the closures, not only the vessel.</strong> Hoop stress on the chamber was calculated. The twelve M6 bolts at the nozzle and the shear path at the bulkhead were sized from convention and reference designs rather than from a written calculation. The closures are where a motor actually fails.</p> <h2 id="what-this-project-gave-me">What this project gave me</h2> <p>It was the first time I owned a component from requirement to CAD, and the first time I felt how a single number propagates: fixing chamber pressure at 5 MPa fixed the wall thickness, the O-ring sizes, the bolt count, the throat area and, through it, the thrust curve and the flight profile.</p> <p>It also left me with a number I could not check. The spreadsheet assumes a specific impulse of roughly 123 s, and every figure above rests on that constant — impulse, burn time, apogee, the lot. Nothing in a design process tells you whether the propellant you eventually cast will deliver it; only a static fire does. Stopping at design review meant I finished the project holding a stack of self-consistent numbers with no measurement anywhere underneath them.</p> <p>That is what I wanted next, and it is why the work I looked for afterwards was the kind where something actually gets fired and recorded.</p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Hongryeol Lim. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "A growing collection of your cool projects.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
+        
+          title: 'Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/", "_blank");
+          
+        },
+      },{id: "post-displaying-external-posts-on-your-al-folio-blog",
+        
+          title: 'Displaying External Posts on Your al-folio Blog <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "projects-nura-competition-two-stage-sounding-rocket",
+          title: 'NURA Competition - Two-Stage Sounding Rocket',
+          description: "Flight computer, staging logic and telemetry for a two-stage sounding rocket",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_nura_competition/";
+            },},{id: "projects-solid-rocket-motor-design",
+          title: 'Solid Rocket Motor Design',
+          description: "Design study of a 1447 N-s solid motor - nozzle, chamber and bulkhead - for a 1 km sounding rocket",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_solid_motor/";
+            },},{id: "teachings-data-science-fundamentals",
+          title: 'Data Science Fundamentals',
+          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/data-science-fundamentals/";
+            },},{id: "teachings-introduction-to-machine-learning",
+          title: 'Introduction to Machine Learning',
+          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/introduction-to-machine-learning/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/example_pdf.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%6C%69%6D%68%79%30%37%30%39@%68%61%6E%79%61%6E%67.%61%63.%6B%72", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
