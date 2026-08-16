@@ -9,3 +9,18 @@ html[data-theme=dark] .post-list li a,html[data-theme=dark] .card .card-title{co
 a,table.table a,.citation,.citation-number,.publications ol.bibliography li .links a.btn:hover,.calendar-toggle-btn{font-weight:700}
 .header-bar h1,.publications h1,.navbar.navbar-light .navbar-nav .nav-item.active>.nav-link{font-weight:700}
 .projects a:hover .card-title,.post-list li a:hover{font-weight:700}
+/* ---- heading spacing ---- */
+.post h1, .post h2, .post h3, .post h4,
+article h1, article h2, article h3, article h4 {
+  margin-top: 3rem;
+  margin-bottom: 1.1rem;
+}
+
+.post h3, article h3 {
+  margin-top: 2.2rem;
+}
+
+.post > *:first-child,
+article > *:first-child {
+  margin-top: 0;
+}
