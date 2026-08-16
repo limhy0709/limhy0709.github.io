@@ -238,7 +238,7 @@ There was therefore still a **hard 15.7 s timeout backup**: even with apogee det
 
 That is the most informative fact from the whole flight. A silent backup timer means the flight computer was not in `event 3` when the timer would have expired — it had either reset, browned out, or never advanced past ARMED. **All of those are consistent with A1**: an intermittent contact that survives a bench test but not launch vibration and 15+ g of boost.
 
-### 
+
 
 ### Root cause chain
 
